@@ -16,6 +16,10 @@ p{
     src: url('../fonts/allages1.ttf');
 }
 
+.form, .wrapper{
+    margin-top: 10px;
+}
+
 /*-----------------------
     Navigation
 -----------------------*/
