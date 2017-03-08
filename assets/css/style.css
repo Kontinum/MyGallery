@@ -1,0 +1,104 @@
+body{
+    font-size: 16px;
+    font-family: 'Lato',sans-serif;
+}
+h1{
+    font-size: 300%;
+    letter-spacing: 2px;
+}
+p{
+    font-size: 120%;
+    letter-spacing: 1px;
+}
+
+@font-face{
+    font-family : brandfont;
+    src: url('../fonts/allages1.ttf');
+}
+
+/*-----------------------
+    Navigation
+-----------------------*/
+
+.navbar-default{
+    margin-bottom: 0;
+}
+.navbar-brand{
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    font-family: brandfont;
+    font-size: 180%;
+}
+
+.navbar-default .navbar-brand{
+    color:cornflowerblue;
+}
+
+.navbar-icons{
+    color: cornflowerblue;
+}
+
+.navbar-right{
+    padding-right: 50px;
+}
+
+/*-----------------------
+    Home section
+-----------------------*/
+
+.home{
+    height: 94.56vh;
+    background-image: linear-gradient(rgba(0, 0, 0,0),rgba(100, 149,237,0.8)), url(../images/home.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center center;
+}
+
+.hero-div{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 400px;
+}
+.hero-text{
+    color: azure;
+    width: 100%;
+}
+
+.hero-paragraph{
+    display: flex;
+    justify-content: center;
+    color: azure;
+    font-weight: bold;
+}
+.hero-logo{
+    font-family: brandfont;
+    font-size: 40px;
+}
+.upload-form{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.upload-photo{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.upload-photo +label{
+    font-size: 170%;
+    font-weight: bold;
+    color: azure;
+    background-color: cornflowerblue;
+    padding: 5px 15px 5px 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.upload-photo +label:hover{
+    border: 1px solid white;
+}
