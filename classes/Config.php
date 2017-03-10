@@ -1,12 +1,19 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: Dejan
- * Date: 10/03/2017
- * Time: 2:26 PM
- */
 class Config
 {
+    public static function get($path = null)
+    {
+        if($path){
+            $config = $GLOBALS['config'];
+            $parts = explode('/',$path);
 
+            foreach ($parts as $part) {
+                if(isset($config[$part])){
+                    $config = $config[$part];
+                }
+            }
+            return $config;
+        }
+        return false;
+    }
 }
