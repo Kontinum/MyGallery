@@ -1,12 +1,37 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: Dejan
- * Date: 11/03/2017
- * Time: 2:10 PM
- */
 class Session
 {
+    public static function put($name,$value)
+    {
+        return $_SESSION[$name] = $value;
+    }
 
+    public static function exists($name)
+    {
+        return (isset($_SESSION[$name])) ? true : false;
+    }
+
+    public static function get($name)
+    {
+        return (isset($_SESSION[$name])) ? $_SESSION[$name] : '';
+    }
+
+    public static function delete($name)
+    {
+        if(self::exists($name)){
+            unset($_SESSION[$name]);
+        }
+    }
+
+    public static function flash($name,$value = "")
+    {
+        if(self::exists($name)){
+            $session = self::get($name);
+            self::delete($name);
+            return $session;
+        }else{
+            self::put($name,$value);
+        }
+        return '';
+    }
 }
