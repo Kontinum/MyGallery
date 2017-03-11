@@ -17,6 +17,8 @@ class Input
 
     public static function get($name,$filterName = "")
     {
+        $filterName = (!empty($filterName)) ? $filterName : FILTER_DEFAULT;
+
         if(isset($_POST[$name])){
             return filter_input(INPUT_POST,$name,$filterName);
         }else if (isset($_GET[$name])){
