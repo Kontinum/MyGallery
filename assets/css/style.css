@@ -122,10 +122,10 @@ p{
 
 .info-box.fail{
     background-color: rgba(255, 0, 0, 1);
-    border: 2px solid white;
+    border: 2px solid azure;
 }
 
 .info-box.success{
     background-color: rgb(56, 128, 66);
-    border: 2px solid white;
+    border: 2px solid azure;
 }
