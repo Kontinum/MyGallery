@@ -7,6 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="wrapper col-lg-8 col-lg-offset-2">
+            <?php require_once "partials/info-box.php"; ?>
             <p>Please fill out all fields to register</p>
             <form class="form" action="" method="post">
                 <div class="form-group">

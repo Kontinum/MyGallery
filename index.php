@@ -5,6 +5,7 @@
 ?>
 
 <section class="home">
+    <?php require_once "partials/info-box.php"; ?>
     <div class="container-fluid">
         <div class="row">
             <div class="hero-div">
