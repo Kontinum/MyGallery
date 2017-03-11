@@ -15,11 +15,13 @@ class Validation
         foreach ($fields as $name => $rules) {
             $value = trim(escape($source[$name]));
 
+            $displayName = ucwords(str_replace(['_','-']," ",$name));
+
             $rules = explode('|',$rules);
 
             foreach ($rules as $rule) {
                 if($rule == 'required' && empty($value)){
-                    $this->addError("{$name} is required");
+                    $this->addError("{$displayName} is required");
                 }elseif(!empty($value)){
                     if(!preg_match("/:/",$rule)){
                         switch ($rule){
@@ -30,7 +32,7 @@ class Validation
                             break;
                             case 'int':
                                 if(!filter_var($value,FILTER_VALIDATE_INT)){
-                                    $this->addError("{$name} is not an integer");
+                                    $this->addError("{$displayName} is not an integer");
                                 }
                             break;
                         }
@@ -40,23 +42,23 @@ class Validation
                         switch ($ruleName){
                             case 'min' :
                                 if(strlen($value) < $ruleValue){
-                                    $this->addError("{$name} must be higher than {$ruleValue} characters");
+                                    $this->addError("{$displayName} must be higher than {$ruleValue} characters");
                                 }
                             break;
                             case 'max':
                                 if(strlen($value) > $ruleValue){
-                                    $this->addError("{$name} must be lower than {$ruleValue} characters");
+                                    $this->addError("{$displayName} must be lower than {$ruleValue} characters");
                                 }
                             break;
                             case 'matches':
                                 if($value !== $source[$ruleValue]){
-                                    $this->addError("{$name} must be same as {$ruleValue}");
+                                    $this->addError("{$displayName} must be same as {$ruleValue}");
                                 }
                             break;
                             case 'unique':
                                 $check = $this->db->get($ruleValue,[$name,'=',$value]);
                                 if($check->count()){
-                                    $this->addError("That {$name} is already in database");
+                                    $this->addError("That {$displayName} is already in database");
                                 }
                             break;
                         }
