@@ -26,6 +26,8 @@
                     </label>
                 </div>
 
+                <input type="hidden" name="token" value="<?= Token::generate() ?>">
+
                 <div class="form-group">
                     <input type="submit" value="Login" class="btn btn-primary pull-right">
                 </div>

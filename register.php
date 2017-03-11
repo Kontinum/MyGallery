@@ -35,6 +35,8 @@
                     <input type="text" id="email" name="email" class="form-control" value="">
                 </div>
 
+                <input type="hidden" name="token" value="<?= Token::generate() ?>">
+
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary pull-right" value="Register">
                 </div>
