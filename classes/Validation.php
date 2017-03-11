@@ -65,9 +65,9 @@ class Validation
                     }
                 }
             }
-            if(empty($this->errors)){
-                $this->passed = true;
-            }
+        }
+        if(empty($this->errors)){
+            $this->passed = true;
         }
         return $this;
     }
