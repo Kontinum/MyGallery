@@ -12,7 +12,7 @@
             <form action="" method="post" class="form">
                 <div class="form-group">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" value="" class="form-control">
+                    <input type="text" id="username" name="username" value="<?= escape(Input::get('username'))?>" class="form-control">
                 </div>
 
                 <div class="form-group">
