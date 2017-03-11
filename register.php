@@ -17,12 +17,12 @@
 
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="text" id="password" name="password" class="form-control" value="" placeholder="Minimum 6 characters">
+                    <input type="password" id="password" name="password" class="form-control" value="" placeholder="Minimum 6 characters">
                 </div>
 
                 <div class="form-group">
                     <label for="password_again">Password again:</label>
-                    <input type="text" id="password_again" name="password_again" class="form-control" value="" placeholder="Repeat password">
+                    <input type="password" id="password_again" name="password_again" class="form-control" value="" placeholder="Repeat password">
                 </div>
 
                 <div class="form-group">
