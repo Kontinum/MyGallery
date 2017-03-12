@@ -2,6 +2,28 @@
     require_once "core/init.php";
     require_once "partials/header.php";
     require_once "partials/navigation.php";
+
+    if(Input::exists()){
+        if(Token::check(Input::get('token'))){
+            $validation = new Validation();
+
+            $validation = $validation->check($_POST,[
+                'username' => 'required|min:5',
+                'password' => 'required|min:6'
+            ]);
+            
+            if($validation->passed()){
+                $user = new User();
+
+                if($user->login(Input::get('username',FILTER_SANITIZE_STRING),Input::get('password',FILTER_SANITIZE_STRING))){
+                    Session::flash('success','Login success. You can now upload images');
+                    Redirect::to('index.php');
+                }else{
+                    Session::flash('error','Username or password was incorrect. Please try again');
+                }
+            }
+        }
+    }
 ?>
 
 <div class="container">
