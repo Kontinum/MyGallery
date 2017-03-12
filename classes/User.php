@@ -46,4 +46,14 @@ class User
         }
         return false;
     }
+
+    public function isLoggedIn()
+    {
+        return $this->isLoggedIn;
+    }
+
+    public function userData()
+    {
+        return $this->userData;
+    }
 }
