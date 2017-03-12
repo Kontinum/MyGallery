@@ -17,7 +17,7 @@
                             <?= $user->userData()->username ?> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="logout">Logout</a></li>
+                            <li><a href="logout.php">Logout</a></li>
                         </ul>
                     </li>
                     <?php else: ?>
