@@ -6,10 +6,22 @@ class User
             $isLoggedIn = false,
             $sessionName;
 
-    public function __construct()
+    public function __construct($user = null)
     {
         $this->db = Database::getInstance();
         $this->sessionName = Config::get('session/session_name');
+
+        if(!$user){
+            if(Session::exists($this->sessionName)){
+                $user = Session::get($this->sessionName);
+
+                if($this->found($user)){
+                    $this->isLoggedIn = true;
+                }
+            }
+        }else{
+            $this->found($user);
+        }
     }
 
     public function register($values = array())
