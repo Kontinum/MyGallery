@@ -4,6 +4,41 @@
     require_once 'partials/navigation.php';
 ?>
 
+<?php
+if(Input::exists()){
+    if(Token::check(Input::get('token'))){
+        $validation = new Validation();
+
+        $validation = $validation->check($_POST,[
+            'username' => 'required|min:5|max:20|unique:users',
+            'password' => 'required|min:6',
+            'password_again' => 'required|min:6|matches:password',
+            'name' => 'required|min:5|max:50',
+            'email' => 'required|email',
+        ]);
+
+       if($validation->passed()){
+           $user = new User();
+
+           $salt = Hash::salt(32);
+
+           if($user->register([
+               "username" => Input::get('username',FILTER_SANITIZE_STRING),
+               "password" => Hash::make(Input::get('password',FILTER_SANITIZE_STRING),$salt),
+               "salt" => $salt,
+               "name" => Input::get('name',FILTER_SANITIZE_STRING),
+               "email" => Input::get('email',FILTER_SANITIZE_EMAIL),
+           ])){
+               Session::flash('success','You have been successfully registered');
+               Redirect::to('index.php');
+           }else{
+               Session::flash('error','There was an error. Please try again');
+           }
+       }
+    }
+}
+?>
+
 <div class="container">
     <div class="row">
         <div class="wrapper col-lg-8 col-lg-offset-2">
