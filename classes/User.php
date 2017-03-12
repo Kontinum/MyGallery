@@ -1,12 +1,18 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: Dejan
- * Date: 12/03/2017
- * Time: 1:01 PM
- */
 class User
 {
+    private $db = null;
 
+    public function __construct()
+    {
+        $this->db = Database::getInstance();
+    }
+
+    public function register($values = array())
+    {
+        if($this->db->insert('users',$values)){
+            return true;
+        }
+        return false;
+    }
 }
