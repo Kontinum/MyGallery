@@ -17,7 +17,10 @@
                             <?= $user->userData()->username ?> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="logout.php">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <?php else: ?>
