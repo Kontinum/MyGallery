@@ -82,6 +82,18 @@ class User
         return false;
     }
 
+    public function update($data = array(),$id = null)
+    {
+        $id = ($id) ? $id : $this->userData()->id;
+
+        $userUpdate = $this->db->update('users',$id,$data);
+
+        if($userUpdate){
+            return true;
+        }
+        return false;
+    }
+
     public function logout()
     {
         Session::delete($this->sessionName);
