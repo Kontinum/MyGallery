@@ -22,10 +22,11 @@
         </div>
 
         <div class="row">
-            <form class="upload-form" action="" method="post">
-                <input type="file" name="upload_photo" id="upload-photo" class="upload-photo">
-                <label for="upload-photo">Upload image</label>
-            </form>
+            <div class="hero-button">
+                <a href="upload.php">
+                    <button class="btn btn-lg btn-primary">Upload image</button>
+                </a>
+            </div>
         </div>
     </div>
 </section>
