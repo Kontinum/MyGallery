@@ -27,3 +27,18 @@ spl_autoload_register(function($className){
 });
 
 require_once "functions/sanitize.php";
+
+$cookieName = Config::get('remember/cookie_name');
+$sessionName = Config::get('session/session_name');
+
+if(Cookie::exists($cookieName) && !Session::exists($sessionName)){
+    $cookieHash = Cookie::get($cookieName);
+
+    $hashCheck = Database::getInstance()->get('remember_users',['hash','=',$cookieHash]);
+
+    if($hashCheck->count()){
+        $user = new User($hashCheck->first()->user_id);
+        $user->login();
+    }
+
+}
