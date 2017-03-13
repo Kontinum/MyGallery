@@ -15,7 +15,9 @@
             if($validation->passed()){
                 $user = new User();
 
-                if($user->login(Input::get('username',FILTER_SANITIZE_STRING),Input::get('password',FILTER_SANITIZE_STRING))){
+                $remember = (Input::get('remember_me') === 'on') ? true : false;
+
+                if($user->login(Input::get('username',FILTER_SANITIZE_STRING),Input::get('password',FILTER_SANITIZE_STRING),$remember)){
                     Session::flash('success','Login success. You can now upload images');
                     Redirect::to('index.php');
                 }else{
