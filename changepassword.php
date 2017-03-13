@@ -24,6 +24,8 @@
                     <input type="password" id="new_password_again" name="new_password_again" class="form-control" placeholder="Repeat new password">
                 </div>
 
+                <input type="hidden" name="token" value="<?= Token::generate() ?>">
+
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary pull-right">Change password</button>
                 </div>
