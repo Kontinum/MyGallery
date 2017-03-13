@@ -4,21 +4,36 @@
             <a href="index.php" class="navbar-brand">MyGallery</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="upload.php">
-                    <i class="fa fa-lg fa-cloud-upload navbar-icons" aria-hidden="true"></i> Upload photo
-                </a>
-            </li>
             <?php
                 $user = new User();
                 if($user->isLoggedIn()) : ?>
+                    <li>
+                        <a href="upload.php">
+                            <i class="fa fa-lg fa-cloud-upload navbar-icons" aria-hidden="true"></i> Upload photo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="images.php?username=<?= escape($user->userData()->username) ?>">
+                            <i class="fa fa-lg fa-picture-o navbar-icons" aria-hidden="true"></i> Your images
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <?= $user->userData()->username ?> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="logout.php">
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
+                            <li>
+                                <a href="profile.php?username=<?= escape($user->userData()->username) ?>">
+                                    <i class="fa fa-user navbar-icons" aria-hidden="true"></i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="changepassword.php"><i class="fa fa-key navbar-icons" aria-hidden="true"></i> Change password
+                                </a>
+                            </li>
+                            <li>
+                                <a href="logout.php">
+                                    <i class="fa fa-sign-out navbar-icons" aria-hidden="true"></i> Logout
                                 </a>
                             </li>
                         </ul>
