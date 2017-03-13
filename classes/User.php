@@ -85,6 +85,8 @@ class User
     public function logout()
     {
         Session::delete($this->sessionName);
+        $this->db->delete('remember_users',['user_id','=',$this->userData()->id]);
+        Cookie::delete($this->cookieName);
         $this->isLoggedIn = false;
     }
 
