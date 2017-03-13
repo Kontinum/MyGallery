@@ -3,6 +3,45 @@
     require_once "partials/header.php";
     require_once "partials/navigation.php";
 ?>
+
+<?php
+    if(Input::exists()){
+        if(Token::check(Input::get('token'))){
+            $validation = new Validation();
+
+            $validation = $validation->check($_POST,[
+                'old_password' => 'required|min:6',
+                'new_password' => 'required|min:6',
+                'new_password_again' => 'required|min:6|matches:new_password',
+            ]);
+            
+            if($validation->passed()){
+                $old_password = Input::get('old_password',FILTER_SANITIZE_STRING);
+                $user = new User();
+
+                if(Hash::make($old_password,$user->userData()->salt) !== $user->userData()->password){
+                    Session::flash('error','Incorrect old password');
+                }else{
+                    $salt = Hash::salt(32);
+                    $new_password = Input::get('new_password',FILTER_SANITIZE_STRING);
+
+                    if($user->update([
+                        'password' => Hash::make($new_password,$salt),
+                        'salt' => $salt
+                    ])){
+                        $user->logout();
+                        Session::flash('success','Password has been successfully changed');
+                        Redirect::to('login.php');
+
+                    }else{
+                        Session::flash('error','There was an error changing password. Please try again');
+                    }
+                }
+            }
+        }
+    }
+?>
+
 <div class="container">
     <div class="row">
         <div class="wrapper col-lg-8 col-lg-offset-2">
