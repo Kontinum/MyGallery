@@ -15,10 +15,11 @@
                     <p>You can upload up to 16MB photo with jpg, png and bmp extensions.</p>
                     <form action="" method="post">
                         <div class="form-group col-lg-8 col-lg-offset-1 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2">
-                            <input type="file" class="form-control">
+                            <input type="file" name="upload_image" class="form-control">
                         </div>
+                        <input type="hidden" name="token" value="<?= Token::generate() ?>">
                         <div class="col-lg-3">
-                            <button class="btn btn-primary pull-left">Upload image</button>
+                            <button type="submit" class="btn btn-primary pull-left">Upload image</button>
                         </div>
                     </form>
                 </div>
