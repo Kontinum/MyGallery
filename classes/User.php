@@ -94,6 +94,16 @@ class User
         return false;
     }
 
+    public function ownsProfile($sessionId,$username)
+    {
+        $userCheck = $this->db->get('users',['id','=',$sessionId]);
+
+        if($username == $userCheck->first()->username){
+            return true;
+        }
+        return false;
+    }
+
     public function logout()
     {
         Session::delete($this->sessionName);
