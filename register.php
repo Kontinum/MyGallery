@@ -14,7 +14,7 @@ if(Input::exists()){
             'password' => 'required|min:6',
             'password_again' => 'required|min:6|matches:password',
             'name' => 'required|min:5|max:50',
-            'email' => 'required|email',
+            'email' => 'required|email'
         ]);
 
        if($validation->passed()){
@@ -28,6 +28,7 @@ if(Input::exists()){
                "salt" => $salt,
                "name" => Input::get('name',FILTER_SANITIZE_STRING),
                "email" => Input::get('email',FILTER_SANITIZE_EMAIL),
+               'joined' => date('Y-m-d H:i:s')
            ])){
                Session::flash('success','You have been successfully registered');
                Redirect::to('index.php');
