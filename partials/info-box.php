@@ -21,3 +21,13 @@
             </ul>
         </div>
     <?php endif ?>
+
+    <?php if(isset($file) && $file->haveErrors()) : ?>
+        <div class="info-box fail">
+            <ul>
+                <?php foreach($file->errors() as $error) : ?>
+                    <li><?= $error ?></li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+    <?php endif  ?>
