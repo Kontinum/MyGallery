@@ -8,7 +8,7 @@ class Storage
 
     public static function makeDir($directoryPath)
     {
-        if(!self::exists($directoryPath)){
+        if(!self::fileExists($directoryPath)){
             mkdir($directoryPath);
         }
     }
