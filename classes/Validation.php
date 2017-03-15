@@ -72,6 +72,31 @@ class Validation
         return $this;
     }
 
+    public function checkFile($fileName)
+    {
+        $file = $_FILES[$fileName];
+
+        if(!is_array($file)){
+            $this->addError("File is required");
+        }else{
+            $emptyCount = 0;
+            foreach ($file as $property => $value) {
+                if($property !== 'error'){
+                    if(empty($value)){
+                        $emptyCount ++;
+                    }
+                }
+            }
+            if($emptyCount > 0){
+                $this->addError("File is required");
+            }
+        }
+        if(empty($this->errors)){
+            $this->passed = true;
+        }
+        return $this;
+    }
+
     public function passed()
     {
         return $this->passed;
