@@ -1,12 +1,15 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: Dejan
- * Date: 15/03/2017
- * Time: 5:20 PM
- */
 class Storage
 {
+    public static function fileExists($directoryPath)
+    {
+        return (file_exists($directoryPath)) ? true : false;
+    }
 
+    public static function makeDir($directoryPath)
+    {
+        if(!self::exists($directoryPath)){
+            mkdir($directoryPath);
+        }
+    }
 }
