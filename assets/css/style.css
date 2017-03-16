@@ -120,3 +120,54 @@ p{
 .upload-div{
     margin-top: 250px;
 }
+
+/*-----------------------
+    Images page
+-----------------------*/
+
+.images{
+    margin-top: 50px;
+}
+
+.image{
+    box-shadow: 0px 0px 7px cornflowerblue;
+    overflow: hidden;
+}
+
+.image:hover{
+    box-shadow: 0px 0px 15px cornflowerblue;
+}
+
+.image-description{
+    padding: 5px 10px 0px 10px;
+}
+
+.image-link{
+    color: cornflowerblue;
+    font-weight: bold;
+    font-size: 120%;
+    float: left;
+}
+
+.image-type, .image-date, .image-size{
+    font-style: italic;
+}
+
+.image-type{
+    line-height: 30px;
+    font-size: 110%;
+}
+
+.image-date{
+    clear: both;
+    float: left;
+    display:inline;
+    font-size: 100%;
+}
+
+.image-size{
+    clear: both;
+    float: right;
+    font-size: 100%;
+    margin-top: -30px;
+}
