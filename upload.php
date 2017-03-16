@@ -28,15 +28,17 @@
                     $file->setSaveName($file->getClientOriginalName() . time() .".".$file->getClientOriginalExtension());
 
                     if($file->upload()){
-                        $insertPhoto = Database::getInstance()->insert('images',[
+                        $image = new Image();
+                        $insertImage = $image->insertImage([
                             'user_id' => $userId,
-                            'name' => $file->getSaveName(),
+                            'name' => $file->getClientOriginalName(),
+                            'save_name' => $file->getSaveName(),
                             'extension' => $file->getClientOriginalExtension(),
                             'size' => $file->getSize(),
                             'uploaded' => date('Y-m-d H:i:s')
                         ]);
 
-                        if($insertPhoto){
+                        if($insertImage){
                             Session::flash('success','Image successfully uploaded');
                             Redirect::to('upload.php');
                         }
