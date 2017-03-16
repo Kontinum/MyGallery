@@ -36,8 +36,10 @@ require_once 'partials/navigation.php';
                         <?php foreach ($userImages->results() as $image) : ?>
                             <div class="col-lg-3">
                                 <a href="">
-                                    <div class="image">
-                                        <img class="img-responsive" src="storage/8/<?= $image->save_name ?>" alt="">
+                                    <div class="image-box">
+                                        <div class="image">
+                                            <img class="img-responsive" src="storage/8/<?= $image->save_name ?>" alt="">
+                                        </div>
                                         <div class="image-description">
                                             <a class="image-link" href=""><?= $image->name?></a>
                                             <p class="image-type pull-right">
