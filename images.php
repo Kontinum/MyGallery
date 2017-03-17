@@ -4,15 +4,30 @@
     require_once 'partials/header.php';
     require_once 'partials/navigation.php';
 
-    $image = new Image();
-    $userImages = $image->allImages($sessionId);
+    $sql = "SELECT COUNT(*) AS count FROM images WHERE user_id = ?";
+    $countImages = Database::getInstance()->query($sql,[$sessionId]);
+    $totalImages = $countImages->first()->count;
+
+    if($totalImages > 0){
+        $page = empty(Input::get('page')) ? 1 : Input::get('page');
+        $items_per_page = 5;
+        $total_records = $totalImages;
+
+        $pagination = new Pagination($page,$items_per_page,$total_records);
+
+        $sql = "SELECT * FROM images WHERE user_id = ? ";
+        $sql .= "LIMIT ".$items_per_page;
+        $sql .=" OFFSET ".$pagination->offset();
+
+        $userImages = Database::getInstance()->query($sql,[$sessionId]);
+    }
 
 ?>
 
     <div class="container">
         <div class="row">
             <div class="wrapper">
-                <?php if($userImages->count() == 0) : ?>
+                <?php if($totalImages == 0) : ?>
                     <p>You don't have any images. Go to <a href="upload.php">Upload page</a> and upload them</p>
                     <?php else: ?>
                     <p>Your images: <em><?= $userImages->count() ?></em></p>
