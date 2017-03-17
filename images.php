@@ -1,17 +1,17 @@
 <?php
-require_once "core/init.php";
-require_once "partials/user_check.php";
-require_once 'partials/header.php';
-require_once 'partials/navigation.php';
+    require_once "core/init.php";
+    require_once "partials/user_check.php";
+    require_once 'partials/header.php';
+    require_once 'partials/navigation.php';
+
+    $image = new Image();
+    $userImages = $image->allImages($sessionId);
+
 ?>
 
     <div class="container">
         <div class="row">
             <div class="wrapper">
-                <?php
-                    $image = new Image();
-                    $userImages = $image->allImages($sessionId);
-                ?>
                 <?php if($userImages->count() == 0) : ?>
                     <p>You don't have any images. Go to <a href="upload.php">Upload page</a> and upload them</p>
                     <?php else: ?>
