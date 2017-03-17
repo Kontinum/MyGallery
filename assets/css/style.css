@@ -129,13 +129,23 @@ p{
     margin-top: 50px;
 }
 
-.image-box{
+.box{
     box-shadow: 0px 0px 7px cornflowerblue;
-    overflow: hidden;
+    overflow: visible;
+    height: 400px;
 }
 
-.image-box:hover{
+.box:hover{
     box-shadow: 0px 0px 15px cornflowerblue;
+}
+
+.image-box{
+    height: 320px;
+}
+
+.image{
+    height: 100%;
+    width: 100%;
 }
 
 .image-description{
