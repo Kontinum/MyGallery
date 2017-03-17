@@ -22,6 +22,16 @@ class Pagination
         return ceil($this->total_records/$this->items_per_page);
     }
 
+    public function first()
+    {
+        return 1;
+    }
+
+    public function last()
+    {
+        return $this->totalPages();
+    }
+
     public function next()
     {
         return $this->page + 1;
