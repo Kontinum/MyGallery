@@ -55,6 +55,35 @@
                             </div>
                         <?php endforeach ?>
                     </div>
+                    <div class="col-lg-12 text-center">
+                        <?php if($pagination->totalPages() > 0) : ?>
+                            <ul class="pagination pagination-lg">
+                                <?php if($pagination->hasPrevious()) : ?>
+                                    <li>
+                                        <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $pagination->previous() ?>">Previous</a>
+                                    </li>
+                                <?php endif ?>
+
+                                <?php for($i=1; $i<=$pagination->totalPages();$i++) : ?>
+                                    <?php if($i == $pagination->currentPage()) : ?>
+                                        <li class="active">
+                                            <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $i ?>"><?= $i ?></a>
+                                        </li>
+                                        <?php else: ?>
+                                        <li>
+                                            <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $i ?>"><?= $i ?></a>
+                                        </li>
+                                    <?php endif ?>
+                                <?php endfor ?>
+
+                                <?php if($pagination->hasNext()) : ?>
+                                    <li>
+                                        <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $pagination->next() ?>">Next</a>
+                                    </li>
+                                <?php endif ?>
+                            </ul>
+                        <?php endif ?>
+                    </div>
                 <?php endif ?>
             </div>
         </div>
