@@ -45,7 +45,10 @@
                                                 <i class="fa fa-picture-o navbar-icons" aria-hidden="true"></i> <?= $image->extension ?>
                                             </p>
                                             <p class="image-date">
-                                                <i class="fa fa-calendar navbar-icons" aria-hidden="true"></i> 12.06.2010
+                                                <i class="fa fa-calendar navbar-icons" aria-hidden="true"></i> <?php
+                                                $uploaded = new DateTime($image->uploaded);
+                                                echo $uploaded->format('d-m-Y')
+                                                ?>
                                             </p>
                                             <p class="image-size"><i class="fa fa-file-image-o navbar-icons" aria-hidden="true"></i> <?= $image->size/100000 ?>
                                             </p>
