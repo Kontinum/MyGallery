@@ -10,7 +10,7 @@
 
     if($totalImages > 0){
         $page = empty(Input::get('page')) ? 1 : Input::get('page');
-        $items_per_page = 5;
+        $items_per_page = 1;
         $total_records = $totalImages;
 
         $pagination = new Pagination($page,$items_per_page,$total_records);
@@ -59,6 +59,11 @@
                         <?php if($pagination->totalPages() > 0) : ?>
                             <ul class="pagination pagination-lg">
                                 <?php if($pagination->hasPrevious()) : ?>
+                                    <?php if($pagination->currentPage() >= 4) : ?>
+                                        <li>
+                                            <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $pagination->first() ?>">First</a>
+                                        </li>
+                                    <?php endif ?>
                                     <li>
                                         <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $pagination->previous() ?>">Previous</a>
                                     </li>
@@ -79,6 +84,11 @@
                                     <li>
                                         <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $pagination->next() ?>">Next</a>
                                     </li>
+                                    <?php if($pagination->currentPage() + 2 < $pagination->totalPages()): ?>
+                                        <li>
+                                            <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $pagination->last() ?>">Last</a>
+                                        </li>
+                                    <?php endif ?>
                                 <?php endif ?>
                             </ul>
                         <?php endif ?>
