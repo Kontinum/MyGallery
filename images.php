@@ -67,17 +67,13 @@
                                 <?php
                                     $min = max($page - 2,1);
                                     $max = min($page + 2 ,$pagination->totalPages());
+
                                     for($i=$min; $i<=$max;$i++) : ?>
-                                    <?php if($i == $pagination->currentPage()) : ?>
-                                        <li class="active">
+                                    <?php $activeLink = ($i == $pagination->currentPage()) ? 'active' : ''?>
+                                        <li class="<?= $activeLink ?>">
                                             <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $i ?>"><?= $i ?></a>
                                         </li>
-                                        <?php else: ?>
-                                        <li>
-                                            <a href="images.php?username=<?= $user->userData()->username ?>&page=<?= $i ?>"><?= $i ?></a>
-                                        </li>
-                                    <?php endif ?>
-                                <?php endfor ?>
+                                    <?php endfor ?>
 
                                 <?php if($pagination->hasNext()) : ?>
                                     <li>
