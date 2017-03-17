@@ -30,7 +30,7 @@
                 <?php if($totalImages == 0) : ?>
                     <p>You don't have any images. Go to <a href="upload.php">Upload page</a> and upload them</p>
                     <?php else: ?>
-                    <p>Your images: <em><?= $userImages->count() ?></em></p>
+                    <p>Your images: <em><?= $totalImages ?></em></p>
                     <div class="images col-lg-12">
                         <?php foreach ($userImages->results() as $image) : ?>
                             <div style="margin-bottom: 20px" class="col-lg-3">
