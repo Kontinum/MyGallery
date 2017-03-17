@@ -33,7 +33,7 @@
                     <p>Your images: <em><?= $totalImages ?></em></p>
                     <div class="images col-lg-12">
                         <?php foreach ($userImages->results() as $image) : ?>
-                            <div style="margin-bottom: 20px" class="col-lg-3">
+                            <div style="margin-bottom: 20px" class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
                                 <a href="">
                                     <div class="box">
                                         <div class="image-box">
