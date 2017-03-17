@@ -37,12 +37,12 @@
                                 <a href="">
                                     <div class="image-box">
                                         <div class="image">
-                                            <img class="img-responsive" src="storage/8/<?= $image->save_name ?>" alt="">
+                                            <img class="img-responsive" src="storage/8/<?= escape($image->save_name); ?>" alt="">
                                         </div>
                                         <div class="image-description">
-                                            <a class="image-link" href=""><?= $image->name?></a>
+                                            <a class="image-link" href=""><?= escape($image->name); ?></a>
                                             <p class="image-type pull-right">
-                                                <i class="fa fa-picture-o navbar-icons" aria-hidden="true"></i> <?= $image->extension ?>
+                                                <i class="fa fa-picture-o navbar-icons" aria-hidden="true"></i> <?= escape($image->extension); ?>
                                             </p>
                                             <p class="image-date">
                                                 <i class="fa fa-calendar navbar-icons" aria-hidden="true"></i> <?php
@@ -50,7 +50,7 @@
                                                 echo $uploaded->format('d-m-Y')
                                                 ?>
                                             </p>
-                                            <p class="image-size"><i class="fa fa-file-image-o navbar-icons" aria-hidden="true"></i> <?= $image->size/100000 ?>
+                                            <p class="image-size"><i class="fa fa-file-image-o navbar-icons" aria-hidden="true"></i> <?= escape(number_format($image->size/1000000,2)); ?>MB
                                             </p>
                                         </div>
                                     </div>
