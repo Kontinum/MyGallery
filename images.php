@@ -10,7 +10,7 @@
 
     if($totalImages > 0){
         $page = empty(Input::get('page')) ? 1 : Input::get('page');
-        $items_per_page = 1;
+        $items_per_page = 20;
         $total_records = $totalImages;
 
         $pagination = new Pagination($page,$items_per_page,$total_records);
@@ -35,9 +35,9 @@
                         <?php foreach ($userImages->results() as $image) : ?>
                             <div style="margin-bottom: 20px" class="col-lg-3">
                                 <a href="">
-                                    <div class="image-box">
-                                        <div class="image">
-                                            <img class="img-responsive" src="storage/8/<?= escape($image->save_name); ?>" alt="">
+                                    <div class="box">
+                                        <div class="image-box">
+                                            <img class="image img-responsive" src="storage/8/<?= escape($image->save_name); ?>" alt="">
                                         </div>
                                         <div class="image-description">
                                             <a class="image-link" href=""><?= escape($image->name); ?></a>
