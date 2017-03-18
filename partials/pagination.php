@@ -1,5 +1,5 @@
 <div class="col-lg-12 text-center">
-    <?php if($pagination->totalPages() > 0) : ?>
+    <?php if($pagination->totalPages() > 1) : ?>
         <ul class="pagination pagination-lg">
             <?php if($pagination->hasPrevious()) : ?>
                 <?php if($pagination->currentPage() >= 4) : ?>
