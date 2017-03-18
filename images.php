@@ -34,13 +34,13 @@
                     <div class="images col-lg-12">
                         <?php foreach ($userImages->results() as $image) : ?>
                             <div style="margin-bottom: 20px" class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
-                                <a href="image.php?username=<?= $user->userData()->username ?>&image=<?= $image->id ?>">
+                                <a href="image.php?username=<?= escape($user->userData()->username) ?>&image=<?= escape($image->id) ?>">
                                     <div class="box">
                                         <div class="image-box">
                                             <img class="image img-responsive" src="storage/<?=escape($user->userData()->id)?>/<?= escape($image->save_name) ?>" alt="">
                                         </div>
                                         <div class="image-description">
-                                            <a class="image-link" href="image.php?username=<?= $user->userData()->username ?>&image=<?= $image->id ?>">
+                                            <a class="image-link" href="image.php?username=<?= escape($user->userData()->username) ?>&image=<?= escape($image->id) ?>">
                                                 <?= escape($image->name); ?>
                                             </a>
                                             <p class="image-type pull-right">
