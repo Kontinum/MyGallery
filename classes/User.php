@@ -104,6 +104,16 @@ class User
         return false;
     }
 
+    public function ownsImage($sessionId,$imageId)
+    {
+        $imageCheck = $this->db->get('images',['id','=',$imageId]);
+
+        if($sessionId == $imageCheck->first()->user_id){
+            return true;
+        }
+        return false;
+    }
+
     public function logout()
     {
         Session::delete($this->sessionName);
