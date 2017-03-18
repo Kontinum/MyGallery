@@ -22,4 +22,9 @@ class Image
     {
         return $this->db->get('images',['user_id','=',$userId]);
     }
+
+    public function imageByID($imageId)
+    {
+        return $this->db->get('images',['id','=',$imageId]);
+    }
 }
