@@ -37,7 +37,7 @@
                                 <a href="image.php?username=<?= $user->userData()->username ?>&image=<?= $image->id ?>">
                                     <div class="box">
                                         <div class="image-box">
-                                            <img class="image img-responsive" src="storage/8/<?= escape($image->save_name); ?>" alt="">
+                                            <img class="image img-responsive" src="storage/<?=escape($user->userData()->id)?>/<?= escape($image->save_name) ?>" alt="">
                                         </div>
                                         <div class="image-description">
                                             <a class="image-link" href="image.php?username=<?= $user->userData()->username ?>&image=<?= $image->id ?>">
