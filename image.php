@@ -7,6 +7,10 @@
     if(Input::exists('get')){
         $imageId = Input::get('image');
 
+        if(!$user->ownsImage($sessionId,$imageId)){
+            Redirect::to(404);
+        }
+
         $image = new Image();
         $image = $image->imageByID($imageId);
     }
