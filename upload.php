@@ -67,6 +67,21 @@
                     </form>
                 </div>
             </div>
+            <br>
+            <div class="wrapper col-lg-8 col-lg-offset-2 text-center">
+                <br><hr>
+                <p>or paste image link below</p>
+
+                <form action="uploadByUrl.php" method="post">
+                    <div class="form-group col-lg-8 col-lg-offset-1 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2">
+                        <input type="text" name="image-url" class="form-control" required>
+                    </div>
+                    <input type="hidden" name="token" value="<?= Token::generate() ?>">
+                    <div class="col-lg-3">
+                        <button type="submit" class="btn btn-primary pull-left">Add image url</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 <?php
