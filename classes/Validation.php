@@ -35,6 +35,35 @@ class Validation
                                     $this->addError("{$displayName} is not an integer");
                                 }
                             break;
+                            case 'url':
+                                if(!@fopen($value,'r')){
+                                    $this->addError("{$displayName} is not valid");
+                                }
+                            break;
+                            case 'imageUrl':
+                                if(!@fopen($value,'r')){
+                                    $this->addError("{$displayName} is not valid");
+                                }elseif($openLink = fopen($value,'r')){
+                                    if(!preg_match("/\.(jpg|jpeg|png)$/",$value)){
+                                        $this->addError("{$displayName} must ending with jpg, jpeg or png");
+                                    }else{
+                                        $allowedTypes = ['image/jpg','image/jpeg','image/png','image/bmp'];
+                                        $metaData = stream_get_meta_data($openLink);
+
+                                        foreach ($metaData['wrapper_data'] as $metaItem) {
+                                            if(preg_match('/Content-Type/',$metaItem)){
+                                                $metaPieces = explode(':',$metaItem);
+                                                $metaContentType = trim($metaPieces[1]);
+
+                                                if(!in_array($metaContentType,$allowedTypes)){
+                                                    $this->addError("Content type of {$displayName} is not allowed");
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            break;
                         }
                     }else{
                         list ($ruleName, $ruleValue) = explode(':',$rule);
