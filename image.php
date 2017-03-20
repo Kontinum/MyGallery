@@ -29,6 +29,12 @@
                                <i class="fa fa-download" aria-hidden="true"></i>   Download
                            </button>
                         </a>
+                        &nbsp;
+                        <a href="deleteimage.php?username=<?= escape($user->userData()->username) ?>&image=<?= escape($imageId) ?>">
+                            <button class="btn btn-sm btn-danger">
+                                <i class="fa fa-trash" aria-hidden="true"></i>   Delete
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
