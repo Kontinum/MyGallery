@@ -30,7 +30,7 @@
                            </button>
                         </a>
                         &nbsp;
-                        <a href="deleteimage.php?username=<?= escape($user->userData()->username) ?>&image=<?= escape($imageId) ?>">
+                        <a href="deleteImage.php?username=<?= escape($user->userData()->username) ?>&image=<?= escape($imageId) ?>">
                             <button class="btn btn-sm btn-danger">
                                 <i class="fa fa-trash" aria-hidden="true"></i>   Delete
                             </button>
