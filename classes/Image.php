@@ -27,4 +27,11 @@ class Image
     {
         return $this->db->get('images',['id','=',$imageId]);
     }
+
+    public function getImgType($imgPath)
+    {
+        $imgType = (exif_imagetype($imgPath) == IMAGETYPE_JPEG) ? 'jpg' : 'png';
+
+        return $imgType;
+    }
 }
