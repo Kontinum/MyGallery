@@ -27,6 +27,7 @@
     <div class="container">
         <div class="row">
             <div class="wrapper">
+                <?php require_once "partials/info-box.php"; ?>
                 <?php if($totalImages == 0) : ?>
                     <p>You don't have any images. Go to <a href="upload.php">Upload page</a> and upload them</p>
                     <?php else: ?>
