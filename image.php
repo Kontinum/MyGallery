@@ -21,11 +21,13 @@
         <div class="wrapper">
             <div class="col-lg-8 col-lg-offset-2">
                 <p>Image: <em class="single-image-name"><?= escape($image->first()->name) ?></em></p>
-                <div>
+                <div class="text-center">
                     <img class="img-responsive single-image" src="storage/<?=escape($user->userData()->id)?>/<?= escape($image->first()->save_name) ?>" alt="">
-                    <div class="single-image-download">
-                        <a href="">
-                            <i class="fa fa-download" aria-hidden="true"></i> Download
+                    <div class="single-image-links">
+                        <a href="download.php?username=<?= escape($user->userData()->username) ?>&image=<?= escape($imageId) ?>">
+                           <button class="btn btn-sm btn-success">
+                               <i class="fa fa-download" aria-hidden="true"></i>   Download
+                           </button>
                         </a>
                     </div>
                 </div>
