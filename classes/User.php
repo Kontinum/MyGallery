@@ -114,6 +114,11 @@ class User
         return false;
     }
 
+    public function getId()
+    {
+        return $this->userData->id;
+    }
+
     public function logout()
     {
         Session::delete($this->sessionName);
