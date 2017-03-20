@@ -34,4 +34,14 @@ class Image
 
         return $imgType;
     }
+
+    public function delete($imageId)
+    {
+        $imageDelete = $this->db->delete('images',['id','=',$imageId]);
+
+        if($imageDelete){
+            return true;
+        }
+        return false;
+    }
 }
