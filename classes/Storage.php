@@ -12,4 +12,14 @@ class Storage
             mkdir($directoryPath);
         }
     }
+
+    public static function deleteFile($filePath)
+    {
+        if(self::fileExists($filePath)){
+            if(unlink($filePath)){
+                return true;
+            }
+            return false;
+        }
+    }
 }
