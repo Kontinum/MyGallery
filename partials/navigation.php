@@ -1,20 +1,26 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a href="index.php" class="navbar-brand">MyGallery</a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <?php
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <?php
                 $user = new User();
                 if($user->isLoggedIn()) : ?>
                     <li>
                         <a href="upload.php">
-                            <i class="fa fa-lg fa-cloud-upload navbar-icons" aria-hidden="true"></i> Upload photo
+                            <i class="fa fa-lg fa-cloud-upload navbar-icons hidden-sm" aria-hidden="true"></i> Upload photo
                         </a>
                     </li>
                     <li>
                         <a href="images.php?username=<?= escape($user->userData()->username) ?>">
-                            <i class="fa fa-lg fa-picture-o navbar-icons" aria-hidden="true"></i> Your images
+                            <i class="fa fa-lg fa-picture-o navbar-icons hidden-sm" aria-hidden="true"></i> Your images
                         </a>
                     </li>
                     <li class="dropdown">
@@ -38,7 +44,7 @@
                             </li>
                         </ul>
                     </li>
-                    <?php else: ?>
+                <?php else: ?>
                     <li>
                         <a href="login.php">
                             <i class="fa fa-lg fa-sign-in navbar-icons" aria-hidden="true"></i> Sign in
@@ -48,6 +54,7 @@
                         <button class="btn btn-primary navbar-btn">Create account</button>
                     </a>
                 <?php endif ?>
-        </ul>
+            </ul>
+        </div>
     </div>
 </nav>
