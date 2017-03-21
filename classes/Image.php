@@ -44,4 +44,14 @@ class Image
         }
         return false;
     }
+
+    public function update($data = array(),$id)
+    {
+        $imageUpdate = $this->db->update('images',$id,$data);
+
+        if($imageUpdate){
+            return true;
+        }
+        return false;
+    }
 }
