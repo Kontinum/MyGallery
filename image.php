@@ -19,17 +19,19 @@
 <div class="container">
     <div class="row">
         <div class="wrapper">
+            <?php require_once "partials/info-box.php"; ?>
             <div class="col-lg-8 col-lg-offset-2">
                 <p>Image: <em class="single-image-name"><?= escape($image->first()->name) ?></em>
                     <i style="cursor: pointer" class="fa fa-pencil-square-o image-edit-icon navbar-icons" aria-hidden="true"></i>
                 </p>
 
                 <div class="image-edit-name">
-                    <form action="" method="post">
+                    <form action="editImage.php" method="post">
                         <div class="form-group col-lg-5 col-md-5 col-sm-5 col-xs-5">
                             <input type="text" name="image-name" value="<?= escape($image->first()->name) ?>" class="form-control" required>
                         </div>
                         <input type="hidden" name="token" value="<?= Token::generate() ?>">
+                        <input type="hidden" name="image-id" value="<?= $imageId ?>">
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>
