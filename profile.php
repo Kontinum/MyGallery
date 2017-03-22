@@ -12,6 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="wrapper col-lg-8 col-lg-offset-2">
+                <?php require_once "partials/info-box.php"; ?>
                 <h1><?= escape($user->userData()->username)  ?></h1>
                 <p>Name: <em><?= escape($user->userData()->name) ?></em></p>
                 <p>Joined: <em><?= escape($joinedDate->format('d-m-Y')) ?></em></p>
