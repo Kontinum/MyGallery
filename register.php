@@ -1,5 +1,9 @@
 <?php
     require_once "core/init.php";
+    $user = new User();
+    if($user->isLoggedIn()){
+        Redirect::to('index.php');
+    }
     require_once 'partials/header.php';
     require_once 'partials/navigation.php';
 ?>
