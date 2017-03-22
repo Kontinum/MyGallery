@@ -60,7 +60,7 @@
                         <div class="form-group col-lg-8 col-lg-offset-1 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2">
                             <input type="file" name="upload_image" class="form-control">
                         </div>
-                        <input type="hidden" name="token" value="<?= Token::generate() ?>">
+                        <input type="hidden" name="token" value="<?= $token = Token::generate() ?>">
                         <div class="col-lg-3">
                             <button type="submit" class="btn btn-primary pull-left">Upload image</button>
                         </div>
@@ -73,10 +73,10 @@
                 <p>or paste image link below</p>
 
                 <form action="uploadByUrl.php" method="post">
-                    <div class="form-group col-lg-8 col-lg-offset-1 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2">
+                    <div class="form-group col-lg-8 col-lg-offset-1 col-mds-6 col-md-offset-2 col-sm-6 col-sm-offset-2">
                         <input type="text" name="image-url" class="form-control" required>
                     </div>
-                    <input type="hidden" name="token" value="<?= Token::generate() ?>">
+                    <input type="hidden" name="token" value="<?= $token ?>">
                     <div class="col-lg-3">
                         <button type="submit" class="btn btn-primary pull-left">Add image url</button>
                     </div>
