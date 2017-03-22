@@ -28,7 +28,7 @@ if(Input::exists()){
                'joined' => date('Y-m-d H:i:s')
            ])){
                Session::flash('success','You have been successfully registered');
-               Redirect::to('index.php');
+               Redirect::to('login.php');
            }else{
                Session::flash('error','There was an error. Please try again');
            }
