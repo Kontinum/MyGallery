@@ -1,14 +1,14 @@
 <?php
 class Hash
 {
-    public static function make($password,$salt = "")
+    public static function make($password)
     {
-        return hash('sha256',$password . $salt);
+        return password_hash($password,PASSWORD_BCRYPT);
     }
 
-    public static function salt($length)
+    public static function check($password,$hash)
     {
-        return random_bytes($length);
+        return (password_verify($password,$hash)) ? true : false;
     }
 
     public static function unique()
