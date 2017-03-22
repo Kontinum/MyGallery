@@ -22,4 +22,14 @@ class Storage
             return false;
         }
     }
+
+    public static function deleteDir($dirPath)
+    {
+        if(self::fileExists($dirPath)){
+            if(rmdir($dirPath)){
+                return true;
+            }
+            return false;
+        }
+    }
 }
