@@ -55,7 +55,7 @@ class User
             $user = $this->found($username);
 
             if ($user) {
-                if (Hash::make($password, $this->userData->salt) === $this->userData->password) {
+                if (Hash::check($password,$this->userData()->password)) {
                     Session::put($this->sessionName, $this->userData->id);
                     $this->isLoggedIn = true;
 
