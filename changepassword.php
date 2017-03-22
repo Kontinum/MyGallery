@@ -19,15 +19,13 @@
                 $old_password = Input::get('old_password',FILTER_SANITIZE_STRING);
                 $user = new User();
 
-                if(Hash::make($old_password,$user->userData()->salt) !== $user->userData()->password){
+                if(!Hash::check($old_password,$user->userData()->password)){
                     Session::flash('error','Incorrect old password');
                 }else{
-                    $salt = Hash::salt(32);
                     $new_password = Input::get('new_password',FILTER_SANITIZE_STRING);
 
                     if($user->update([
-                        'password' => Hash::make($new_password,$salt),
-                        'salt' => $salt
+                        'password' => Hash::make($new_password),
                     ])){
                         $user->logout();
                         Session::flash('success','Password has been successfully changed');
