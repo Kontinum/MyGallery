@@ -20,12 +20,9 @@ if(Input::exists()){
        if($validation->passed()){
            $user = new User();
 
-           $salt = Hash::salt(32);
-
            if($user->register([
                "username" => Input::get('username',FILTER_SANITIZE_STRING),
-               "password" => Hash::make(Input::get('password',FILTER_SANITIZE_STRING),$salt),
-               "salt" => $salt,
+               "password" => Hash::make(Input::get('password',FILTER_SANITIZE_STRING)),
                "name" => Input::get('name',FILTER_SANITIZE_STRING),
                "email" => Input::get('email',FILTER_SANITIZE_EMAIL),
                'joined' => date('Y-m-d H:i:s')
