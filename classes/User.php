@@ -94,6 +94,16 @@ class User
         return false;
     }
 
+    public function delete($data = array())
+    {
+        $userDelete = $this->db->delete('users',['id','=',$this->getId()]);
+
+        if($userDelete){
+            return true;
+        }
+        return false;
+    }
+
     public function ownsProfile($sessionId,$username)
     {
         $userCheck = $this->db->get('users',['id','=',$sessionId]);
