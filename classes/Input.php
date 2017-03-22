@@ -19,12 +19,21 @@ class Input
     {
         $filterName = (!empty($filterName)) ? $filterName : FILTER_DEFAULT;
 
-        if(isset($_POST[$name])){
-            return filter_input(INPUT_POST,$name,$filterName);
-        }else if (isset($_GET[$name])){
+        if(isset($_GET[$name])){
             return filter_input(INPUT_GET,$name,$filterName);
+        }else if (isset($_POST[$name])){
+            return filter_input(INPUT_POST,$name,$filterName);
         }else{
             return "";
+        }
+    }
+
+    public static function getPost($name,$filterName = "")
+    {
+        $filterName = (!empty($filterName)) ? $filterName : FILTER_DEFAULT;
+
+        if(isset($_POST[$name])){
+            return filter_input(INPUT_POST,$name,$filterName);
         }
     }
 }
