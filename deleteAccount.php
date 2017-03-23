@@ -7,13 +7,15 @@
     if($user->delete($user->getId())){
         $imgPath = Config::get('upload/directory')."/".$user->getId();
 
-        array_map('unlink',glob($imgPath."/*.*"));
+        if(Storage::fileExists($imgPath)){
+            array_map('unlink',glob($imgPath."/*.*"));
 
-        if(Storage::deleteDir($imgPath)){
-            $user->logout();
-            Session::flash('success','Account successfully deleted');
-            Redirect::to('index.php');
+            Storage::deleteDir($imgPath);
         }
+
+        $user->logout();
+        Session::flash('success','Account successfully deleted');
+        Redirect::to('index.php');
     }else{
         Session::flash('error','There was an error deleting an account');
     }
