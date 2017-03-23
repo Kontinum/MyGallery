@@ -51,7 +51,7 @@
                 <input type="hidden" name="token" value="<?= Token::generate() ?>">
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary pull-right" value="Register">
+                    <input type="submit" class="btn btn-primary pull-right" value="Edit">
                 </div>
             </form>
         </div>
