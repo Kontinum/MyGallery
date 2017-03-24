@@ -125,6 +125,10 @@ p{
     Images page
 -----------------------*/
 
+.search-images{
+    margin-top: 10px;
+}
+
 .images{
     margin-top: 50px;
 }
