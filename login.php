@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password:</label>
+                    <labeli for="password">Password:</labeli>
                     <input type="password" id="password" name="password" value="" class="form-control">
                 </div>
 
@@ -59,6 +59,9 @@
                 <div class="form-group">
                     <input type="submit" value="Login" class="btn btn-primary pull-right">
                 </div>
+                <br><br>
+                <hr>
+                <p>Don't have an account? <a href="register.php">Register</a></p>
             </form>
         </div>
     </div>
