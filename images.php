@@ -33,6 +33,18 @@
                     <p>You don't have any images. Go to <a href="upload.php">Upload page</a> and upload them</p>
                     <?php else: ?>
                     <p>Your images: <em><?= $totalImages ?></em></p>
+
+                    <div class="search-images col-lg-8 col-lg-offset-2 text-center">
+                        <form action="searchImages.php" method="post">
+                            <div class="form-group col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2">
+                                <input type="search" name="image-name" class="form-control" required>
+                            </div>
+                            <div class="form-group col-lg-2 col-md-2">
+                                <input type="submit" name="search-image" value="Search" class="form-control btn btn-success">
+                            </div>
+                        </form>
+                    </div>
+
                     <div class="images col-lg-12">
                         <?php foreach ($userImages->results() as $image) : ?>
                             <div style="margin-bottom: 20px" class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
