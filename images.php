@@ -15,8 +15,9 @@
 
         $pagination = new Pagination($page,$items_per_page,$total_records);
 
-        $sql = "SELECT * FROM images WHERE user_id = ? ";
-        $sql .= "LIMIT ".$items_per_page;
+        $sql  ="SELECT * FROM images WHERE user_id = ?";
+        $sql .=" ORDER BY uploaded DESC";
+        $sql .=" LIMIT ".$items_per_page;
         $sql .=" OFFSET ".$pagination->offset();
 
         $userImages = Database::getInstance()->query($sql,[$sessionId]);
