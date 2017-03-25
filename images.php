@@ -46,6 +46,9 @@
                     </div>
 
                     <div class="images col-lg-12">
+                        <a style="text-decoration: none" title="Switch to gallery view" class="" href="imageGallery.php?username=<?= escape($user->userData()->username) ?>">
+                            <i class="fa fa-lg fa-th navbar-icons" aria-hidden="true"></i>
+                        </a><br>
                         <?php foreach ($userImages->results() as $image) : ?>
                             <div style="margin-bottom: 20px" class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
                                 <a href="image.php?username=<?= escape($user->userData()->username) ?>&image=<?= escape($image->id) ?>">
