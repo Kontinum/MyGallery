@@ -56,14 +56,8 @@
                 <?php require_once "partials/info-box.php"; ?>
                 <div class="upload-div">
                     <p>You can upload up to 16MB photo with jpg, png and bmp extensions.</p>
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <div class="form-group col-lg-8 col-lg-offset-1 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2">
-                            <input type="file" name="upload_image" class="form-control">
-                        </div>
+                    <form action="upload.php" method="post" class="dropzone" id="dropzoneForm">
                         <input type="hidden" name="token" value="<?= $token = Token::generate() ?>">
-                        <div class="col-lg-3">
-                            <button type="submit" class="btn btn-primary pull-left">Upload image</button>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -84,6 +78,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        Dropzone.options.dropzoneForm = {
+            paramName: "upload_image",
+            maxFilesize: 16,
+            maxFiles:2,
+            acceptedFiles: 'image/jpg, image/jpeg, image/png, image/bmp',
+            dictDefaultMessage: "Drag 'n drop or choose up to 2 images"
+        };
+    </script>
 <?php
     require_once "partials/footer.php";
 ?>
