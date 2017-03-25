@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900i" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/ddc4ec2a27.js"></script>
+    <!-- Dropzone CSS -->
+    <link rel="stylesheet" href="assets/css/dropzone.css">
+    <!-- Dropzone js -->
+    <script src="assets/js/dropzone.js"></script>
     <!-- Custom styles -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
