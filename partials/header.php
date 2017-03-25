@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="assets/css/dropzone.css">
     <!-- Dropzone js -->
     <script src="assets/js/dropzone.js"></script>
+    <!-- jQuery CDN -->
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <!-- Unite Gallery min js -->
+    <script src="assets/js/unitegallery.min.js"></script>
+    <!-- Unite Gallery css -->
+    <link rel="stylesheet" href="assets/css/unite-gallery.css">
+    <!-- Unite Gallery theme default js -->
+    <script src="assets/js/ug-theme-tiles.js"></script>
+    <!-- Unite Gallery theme default css -->
+    <link rel="stylesheet" href="assets/css/ug-theme-default.css">
     <!-- Custom styles -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
