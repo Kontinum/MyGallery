@@ -8,7 +8,7 @@
             </button>
             <a href="index.php" class="navbar-brand">MyGallery</a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="collapse navbar-collapse text-center" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
                 <?php
                 $user = new User();
