@@ -46,7 +46,11 @@
 </div>
 <script>
     jQuery(document).ready(function(){
-        jQuery("#gallery").unitegallery();
+        jQuery("#gallery").unitegallery({
+            tile_enable_shadow:true,
+            tile_shadow_color:"cornflowerblue",
+            tiles_space_between_cols:10
+        });
     });
 </script>
 <?php
