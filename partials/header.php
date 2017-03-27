@@ -25,5 +25,7 @@
     <link rel="stylesheet" href="assets/css/ug-theme-default.css">
     <!-- Custom styles -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Media styles -->
+    <link rel="stylesheet" href="assets/css/media.css">
 </head>
 <body>
