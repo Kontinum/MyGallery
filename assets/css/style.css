@@ -167,6 +167,9 @@ p{
     font-weight: bold;
     font-size: 120%;
     float: left;
+    width: 130px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .image-type, .image-date, .image-size{
